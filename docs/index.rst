@@ -18,13 +18,13 @@ IdentityServer4 是一个 ASP.NET Core 下的 OpenID Connect 和 OAuth 2.0 框�
 | 为各种类型的客户端发放API的访问令牌，例如：服务端到服务端、Web应用程序、单页面Web应用程序和本机（移动）端应用程序等等。
 
 | **联合网关（Federation Gateway）**
-| 支持外部身份提供商的集成（如：Azure Active Directory, Google, Facebook等等），简化你的应用程序接入流程，避免你过多的考虑这些外部身份提供商的接入细则。
+| 支持外部身份提供商的集成（如：Azure Active Directory, Google, Facebook等等），简化你应用程序的接入流程，避免你过多地考虑这些外部身份提供商的接入细则。
 
 | **专注于可定制（Focus on Customization）**
-| 最重要的部分 - IdentityServer 可以在许多方面根据**你**的需求进行定制。因为 IdentityServer 是一个框架，而不是一个盒装产品或 SaaS 服务，所以**你**可以用编码的方式对其进行定制来适应**你**的解决方案。
+| 最重要的部分 - IdentityServer 可以在许多方面根据 **你** 的需求进行定制。因为 IdentityServer 是一个框架，而不是一个盒装产品或 SaaS 服务，所以 **你** 可以用编码的方式对其进行定制来适应 **你** 的解决方案。
 
 | **成熟的开源（Mature Open Source）**
-| IdentityServer 使用 `Apache 2 <https://www.apache.org/licenses/LICENSE-2.0>`_ 开源许可，允许在其基础之上构建商业产品。它也是 `.NET 基金会<https://dotnetfoundation.org/>`_ 的一部分，基金会为其提供治理和法律支持。
+| IdentityServer 使用 `Apache 2 <https://www.apache.org/licenses/LICENSE-2.0>`_ 开源许可，允许在其基础之上构建商业产品。它也是 `.NET 基金会 <https://dotnetfoundation.org/>`_ 的一部分，基金会为其提供治理和法律支持。
 
 | **免费或商业支持（Free and Commercial Support）**
 | 如果你在构建或运行你的身份平台时需要帮助，:ref:`请告知我们 <refSupport>`。我们可以通过多种方式为你提供帮助。
