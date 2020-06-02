@@ -48,7 +48,7 @@ msgstr ""
 
 #: ../index.rst:2
 msgid "Welcome to IdentityServer4 (latest)"
-msgstr ""
+msgstr "欢迎来到 IdentityServer4 (latest)"
 
 #: ../index.rst:7
 msgid ""
