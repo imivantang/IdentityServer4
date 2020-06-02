@@ -96,7 +96,7 @@ msgstr ""
 
 #: ../index.rst:23
 msgid "**Federation Gateway**"
-msgstr ""
+msgstr "**联合网关（Federation Gateway）**"
 
 #: ../index.rst:24
 msgid ""
