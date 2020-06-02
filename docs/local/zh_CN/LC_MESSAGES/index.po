@@ -52,24 +52,22 @@ msgstr "欢迎来到 IdentityServer4 (latest)"
 
 #: ../index.rst:7
 msgid ""
-"IdentityServer4 is an OpenID Connect and OAuth 2.0 framework for ASP.NET "
-"Core."
-msgstr ""
+"IdentityServer4 is an OpenID Connect and OAuth 2.0 framework for ASP.NET Core."
+msgstr "IdentityServer4 是一个 ASP.NET Core 下的 OpenID Connect 和 OAuth 2.0 框架。"
 
 #: ../index.rst:9
 msgid ""
-"This docs cover the latest version on master. This might not be released "
-"yet. Use the version picker in the lower left corner to select docs for a"
-" specific version."
+"This docs cover the latest version on master. This might not be released yet. Use the version picker in the lower left corner to select docs for a specific version."
 msgstr ""
+
 
 #: ../index.rst:11
 msgid "It enables the following features in your applications:"
-msgstr ""
+msgstr "它可以在你的应用程序中启用以下功能："
 
 #: ../index.rst:14
 msgid "**Authentication as a Service**"
-msgstr ""
+msgstr "**身份验证服务（Authentication as a Service）**"
 
 #: ../index.rst:15
 msgid ""
