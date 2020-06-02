@@ -119,7 +119,7 @@ msgstr ""
 
 #: ../index.rst:29
 msgid "**Mature Open Source**"
-msgstr ""
+msgstr "**成熟的开源（Mature Open Source）**"
 
 #: ../index.rst:30
 msgid ""
