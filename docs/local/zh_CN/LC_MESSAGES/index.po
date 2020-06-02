@@ -86,7 +86,7 @@ msgstr "多种类型应用程序上的单点登录（或注销）。"
 
 #: ../index.rst:20
 msgid "**Access Control for APIs**"
-msgstr ""
+msgstr "**API的访问控制（Access Control for APIs）**"
 
 #: ../index.rst:21
 msgid ""
