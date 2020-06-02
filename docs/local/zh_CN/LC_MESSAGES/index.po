@@ -78,7 +78,7 @@ msgstr ""
 
 #: ../index.rst:17
 msgid "**Single Sign-on / Sign-out**"
-msgstr ""
+msgstr "**单点登录 / 注销（Single Sign-on / Sign-out）**"
 
 #: ../index.rst:18
 msgid "Single sign-on (and out) over multiple application types."
