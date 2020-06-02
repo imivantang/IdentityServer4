@@ -107,7 +107,7 @@ msgstr ""
 
 #: ../index.rst:26
 msgid "**Focus on Customization**"
-msgstr ""
+msgstr "**专注于可定制（Focus on Customization）**"
 
 #: ../index.rst:27
 msgid ""
