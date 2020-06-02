@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016, Brock Allen & Dominick Baier
+# This file is distributed under the same license as the IdentityServer4
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: IdentityServer4 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-29 20:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../quickstarts/0_overview.rst:3
+msgid "Overview"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:4
+msgid ""
+"The quickstarts provide step by step instructions for various common "
+"IdentityServer scenarios. They start with the absolute basics and become "
+"more complex - it is recommended you do them in order."
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:8
+msgid "adding IdentityServer to an ASP.NET Core application"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:9
+msgid "configuring IdentityServer"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:10
+msgid "issuing tokens for various clients"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:11
+msgid "securing web applications and APIs"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:12
+msgid "adding support for EntityFramework based configuration"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:13
+msgid "adding support for ASP.NET Identity"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:15
+msgid ""
+"Every quickstart has a reference solution - you can find the code in the "
+"`samples "
+"<https://github.com/IdentityServer/IdentityServer4/tree/master/samples/Quickstarts>`_"
+" folder."
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:19
+msgid "Preparation"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:20
+msgid "The first thing you should do is install our templates::"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:24
+msgid "They will be used as a starting point for the various tutorials."
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:26
+msgid ""
+"If you are using private NuGet sources do not forget to add the --nuget-"
+"source parameter: --nuget-source https://api.nuget.org/v3/index.json"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:28
+msgid "OK - let's get started!"
+msgstr ""
+
+#: ../quickstarts/0_overview.rst:30
+msgid ""
+"The quickstarts target the latest version of IdentityServer and ASP.NET "
+"Core (3.0) - there are also quickstarts for `ASP.NET Core 2 "
+"<http://docs.identityserver.io/en/aspnetcore2/quickstarts/0_overview.html>`_"
+" and `ASP.NET Core 1 "
+"<http://docs.identityserver.io/en/aspnetcore1/quickstarts/0_overview.html>`_."
+msgstr ""
+

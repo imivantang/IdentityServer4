@@ -1,0 +1,259 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016, Brock Allen & Dominick Baier
+# This file is distributed under the same license as the IdentityServer4
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: IdentityServer4 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-29 20:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../topics/grant_types.rst:3
+msgid "Grant Types"
+msgstr ""
+
+#: ../topics/grant_types.rst:4
+msgid ""
+"The OpenID Connect and OAuth 2.0 specifications define so-called grant "
+"types (often also called flows - or protocol flows). Grant types specify "
+"how a client can interact with the token service."
+msgstr ""
+
+#: ../topics/grant_types.rst:7
+msgid ""
+"You need to specify which grant types a client can use via the "
+"``AllowedGrantTypes`` property on the ``Client`` configuration. This "
+"allows locking down the protocol interactions that are allowed for a "
+"given client."
+msgstr ""
+
+#: ../topics/grant_types.rst:10
+msgid ""
+"A client can be configured to use more than a single grant type (e.g. "
+"Authorization Code flow for user centric operations and client "
+"credentials for server to server communication). The ``GrantTypes`` class"
+" can be used to pick from typical grant type combinations::"
+msgstr ""
+
+#: ../topics/grant_types.rst:15
+msgid "You can also specify the grant types list manually::"
+msgstr ""
+
+#: ../topics/grant_types.rst:24
+msgid ""
+"While IdentityServer supports all standard grant types, you really only "
+"need to know two of them for common application scenarios."
+msgstr ""
+
+#: ../topics/grant_types.rst:27
+msgid "Machine to Machine Communication"
+msgstr ""
+
+#: ../topics/grant_types.rst:28
+msgid ""
+"This is the simplest type of communication. Tokens are always requested "
+"on behalf of a client, no interactive user is present."
+msgstr ""
+
+#: ../topics/grant_types.rst:30
+msgid ""
+"In this scenario, you send a token request to the token endpoint using "
+"the ``client credentials`` grant type. The client typically has to "
+"authenticate with the token endpoint using its client ID and secret."
+msgstr ""
+
+#: ../topics/grant_types.rst:33
+msgid ""
+"See the :ref:`Client Credentials Quick Start "
+"<refClientCredentialsQuickstart>` for a sample how to use it."
+msgstr ""
+
+#: ../topics/grant_types.rst:36
+msgid "Interactive Clients"
+msgstr ""
+
+#: ../topics/grant_types.rst:37
+msgid ""
+"This is the most common type of client scenario: web applications, SPAs "
+"or native/mobile apps with interactive users."
+msgstr ""
+
+#: ../topics/grant_types.rst:39
+msgid ""
+"Feel free to skip to the summary, if you don't care about all the "
+"technical details."
+msgstr ""
+
+#: ../topics/grant_types.rst:41
+msgid ""
+"For this type of clients, the ``authorization code`` flow was designed. "
+"That flow consists of two physical operations:"
+msgstr ""
+
+#: ../topics/grant_types.rst:43
+msgid ""
+"a front-channel step via the browser where all \"interactive\" things "
+"happen, e.g. login page, consent etc. This step results in an "
+"authorization code that represents the outcome of the front-channel "
+"operation."
+msgstr ""
+
+#: ../topics/grant_types.rst:44
+msgid ""
+"a back-channel step where the authorization code from step 1 gets "
+"exchanged with the requested tokens. Confidential clients need to "
+"authenticate at this point."
+msgstr ""
+
+#: ../topics/grant_types.rst:46
+msgid "This flow has the following security properties:"
+msgstr ""
+
+#: ../topics/grant_types.rst:48
+msgid ""
+"no data (besides the authorization code which is basically a random "
+"string) gets leaked over the browser channel"
+msgstr ""
+
+#: ../topics/grant_types.rst:49
+msgid "authorization codes can only be used once"
+msgstr ""
+
+#: ../topics/grant_types.rst:50
+msgid ""
+"the authorization code can only be turned into tokens when (for "
+"confidential clients - more on that later) the client secret is known"
+msgstr ""
+
+#: ../topics/grant_types.rst:52
+msgid ""
+"This sounds all very good - still there is one problem called `code "
+"substitution attack <https://nat.sakimura.org/2016/01/25/cut-and-pasted-"
+"code-attack-in-oauth-2-0-rfc6749/>`_. There are two modern mitigation "
+"techniques for this:"
+msgstr ""
+
+#: ../topics/grant_types.rst:55
+msgid "**OpenID Connect Hybrid Flow**"
+msgstr ""
+
+#: ../topics/grant_types.rst:57
+msgid ""
+"This uses a response type of ``code id_token`` to add an additional "
+"identity token to the response. This token is signed and protected "
+"against substitution. In addition it contains the hash of the code via "
+"the ``c_hash`` claim. This allows checking that you indeed got the right "
+"code (experts call this a detached signature)."
+msgstr ""
+
+#: ../topics/grant_types.rst:60
+msgid "This solves the problem but has the following down-sides:"
+msgstr ""
+
+#: ../topics/grant_types.rst:62
+msgid ""
+"the ``id_token`` gets transmitted over the front-channel and might leak "
+"additional (personal identifiable) data"
+msgstr ""
+
+#: ../topics/grant_types.rst:63
+msgid ""
+"all the mitigitation steps (e.g. crypto) need to be implemented by the "
+"client. This results in more complicated client library implementations."
+msgstr ""
+
+#: ../topics/grant_types.rst:65
+msgid "**RFC 7636 - Proof Key for Code Exchange (PKCE)**"
+msgstr ""
+
+#: ../topics/grant_types.rst:67
+msgid ""
+"This essentially introduces a per-request secret for code flow (please "
+"read up on the details `here <https://tools.ietf.org/html/rfc7636>`_). "
+"All the client has to implement for this, is creating a random string and"
+" hashing it using SHA256."
+msgstr ""
+
+#: ../topics/grant_types.rst:70
+msgid ""
+"This also solves the substition problem, because the client can prove "
+"that it is the same client on front and back-channel, and has the "
+"following additional advantages:"
+msgstr ""
+
+#: ../topics/grant_types.rst:72
+msgid "the client implementation is very simple compared to hybrid flow"
+msgstr ""
+
+#: ../topics/grant_types.rst:73
+msgid ""
+"it also solves the problem of the absence of a static secret for public "
+"clients"
+msgstr ""
+
+#: ../topics/grant_types.rst:74
+msgid "no additional front-channel response artifacts are needed"
+msgstr ""
+
+#: ../topics/grant_types.rst:76
+msgid "**Summary**"
+msgstr ""
+
+#: ../topics/grant_types.rst:78
+msgid ""
+"Interactive clients should use an authorization code-based flow. To "
+"protect against code substitution, either hybrid flow or PKCE should be "
+"used. If PKCE is available, this is the simpler solution to the problem."
+msgstr ""
+
+#: ../topics/grant_types.rst:81
+msgid ""
+"PKCE is already the official recommendation for `native "
+"<https://tools.ietf.org/html/rfc8252#section-6>`_ applications and `SPAs "
+"<https://tools.ietf.org/html/draft-ietf-oauth-browser-based-"
+"apps-03#section-4>`_ - and with the release of ASP.NET Core 3 also by "
+"default supported in the OpenID Connect handler as well."
+msgstr ""
+
+#: ../topics/grant_types.rst:84
+msgid "This is how you would configure an interactive client::"
+msgstr ""
+
+#: ../topics/grant_types.rst:102
+msgid "Interactive clients without browsers or with constrained input devices"
+msgstr ""
+
+#: ../topics/grant_types.rst:103
+msgid ""
+"This grant type is detailed `RFC 8628 "
+"<https://tools.ietf.org/html/rfc8628>`_."
+msgstr ""
+
+#: ../topics/grant_types.rst:105
+msgid ""
+"This flow outsources user authentication and consent to an external "
+"device (e.g. a smart phone). It is typically used by devices that don't "
+"have proper keyboards (e.g. TVs, gaming consoles...) and can request both"
+" identity and API resources."
+msgstr ""
+
+#: ../topics/grant_types.rst:109
+msgid "Custom scenarios"
+msgstr ""
+
+#: ../topics/grant_types.rst:110
+msgid ""
+"Extension grants allow extending the token endpoint with new grant types."
+" See :ref:`this <refExtensionGrants>` for more details."
+msgstr ""
+

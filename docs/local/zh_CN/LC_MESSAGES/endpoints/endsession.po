@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016, Brock Allen & Dominick Baier
+# This file is distributed under the same license as the IdentityServer4
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: IdentityServer4 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-29 20:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../endpoints/endsession.rst:3
+msgid "End Session Endpoint"
+msgstr ""
+
+#: ../endpoints/endsession.rst:5
+msgid ""
+"The end session endpoint can be used to trigger single sign-out (see "
+"`spec <https://openid.net/specs/openid-connect-"
+"session-1_0.html#RPLogout>`_)."
+msgstr ""
+
+#: ../endpoints/endsession.rst:7
+msgid ""
+"To use the end session endpoint a client application will redirect the "
+"user's browser to the end session URL. All applications that the user has"
+" logged into via the browser during the user's session can participate in"
+" the sign-out."
+msgstr ""
+
+#: ../endpoints/endsession.rst:10
+msgid ""
+"The URL for the end session endpoint is available via the :ref:`discovery"
+" endpoint <refDiscovery>`."
+msgstr ""
+
+#: ../endpoints/endsession.rst:13
+msgid "Parameters"
+msgstr ""
+
+#: ../endpoints/endsession.rst:15
+msgid "**id_token_hint**"
+msgstr ""
+
+#: ../endpoints/endsession.rst:17
+msgid ""
+"When the user is redirected to the endpoint, they will be prompted if "
+"they really want to sign-out. This prompt can be bypassed by a client "
+"sending the original *id_token* received from authentication. This is "
+"passed as a query string parameter called ``id_token_hint``."
+msgstr ""
+
+#: ../endpoints/endsession.rst:21
+msgid "**post_logout_redirect_uri**"
+msgstr ""
+
+#: ../endpoints/endsession.rst:23
+msgid ""
+"If a valid ``id_token_hint`` is passed, then the client may also send a "
+"``post_logout_redirect_uri`` parameter. This can be used to allow the "
+"user to redirect back to the client after sign-out. The value must match "
+"one of the client's pre-configured `PostLogoutRedirectUris` (:ref:`client"
+" docs <refClient>`)."
+msgstr ""
+
+#: ../endpoints/endsession.rst:27
+msgid "**state**"
+msgstr ""
+
+#: ../endpoints/endsession.rst:29
+msgid ""
+"If a valid ``post_logout_redirect_uri`` is passed, then the client may "
+"also send a ``state`` parameter. This will be returned back to the client"
+" as a query string parameter after the user redirects back to the client."
+" This is typically used by clients to round-trip state across the "
+"redirect."
+msgstr ""
+
+#: ../endpoints/endsession.rst:34
+msgid "Example"
+msgstr ""
+
+#: ../endpoints/endsession.rst:40
+msgid ""
+"You can use the `IdentityModel "
+"<https://github.com/IdentityModel/IdentityModel2>`_ client library to "
+"programmatically create end_session requests .NET code. For more "
+"information check the IdentityModel `docs "
+"<https://identitymodel.readthedocs.io/en/latest/client/end_session.html>`_."
+msgstr ""
+

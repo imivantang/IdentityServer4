@@ -1,0 +1,253 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016, Brock Allen & Dominick Baier
+# This file is distributed under the same license as the IdentityServer4
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: IdentityServer4 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-29 20:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../quickstarts/5_entityframework.rst:3
+msgid "Using EntityFramework Core for configuration and operational data"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:5
+msgid ""
+"In the previous quickstarts, we created our client and scope data in "
+"code. On startup, IdentityServer loaded this configuration data into "
+"memory. If we wanted to modify this configuration data, we had to stop "
+"and start IdentityServer."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:9
+msgid ""
+"IdentityServer also generates temporary data, such as authorization "
+"codes, consent choices, and refresh tokens. By default, these are also "
+"stored in-memory."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:12
+msgid ""
+"To move this data into a database that is persistent between restarts and"
+" across multiple IdentityServer instances, we can use the IdentityServer4"
+" Entity Framework library."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:14
+msgid ""
+"In addition to manually configuring EF support, there is also an "
+"IdentityServer template to create a new project with EF support, using "
+"``dotnet new is4ef``."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:17
+msgid "IdentityServer4.EntityFramework"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:18
+msgid ""
+"``IdentityServer4.EntityFramework`` implements the required stores and "
+"services using the following DbContext’s:"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:20
+msgid ""
+"ConfigurationDbContext - used for configuration data such as clients, "
+"resources, and scopes"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:21
+msgid ""
+"PersistedGrantDbContext - used for temporary operational data such as "
+"authorization codes, and refresh tokens"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:23
+msgid ""
+"These contexts are suitable for any Entity Framework Core compatible "
+"relational database."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:25
+msgid ""
+"You can find these contexts, their entities, and the IdentityServer4 "
+"stores that use them in the ``IdentityServer4.EntityFramework.Storage`` "
+"nuget package."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:27
+msgid ""
+"You can find the extension methods to register them in your "
+"IdentityServer in ``IdentityServer4.EntityFramework``, which we will do "
+"now::"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:32
+msgid "Using SqlServer"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:34
+msgid ""
+"For this quickstart, we will use the LocalDb version of SQLServer that "
+"comes with Visual Studio. To add SQL Server support to our IdentityServer"
+" project, you’ll need the following nuget package::"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:40
+msgid "Database Schema Changes and Using EF Migrations"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:42
+msgid ""
+"The ``IdentityServer4.EntityFramework.Storage`` package contains entity "
+"classes that map from IdentityServer’s models. As IdentityServer’s models"
+" change, so will the entity classes in "
+"``IdentityServer4.EntityFramework.Storage``. As you use "
+"``IdentityServer4.EntityFramework.Storage`` and upgrade over time, you "
+"are responsible for your database schema and changes necessary to that "
+"schema as the entity classes change. One approach for managing those "
+"changes is to use `EF migrations <https://docs.microsoft.com/en-"
+"us/ef/core/managing-schemas/migrations/index>`_, which is what we’ll use "
+"in this quickstart. If migrations are not your preference, then you can "
+"manage the schema changes in any way you see fit."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:48
+msgid ""
+"You can find the `latest SQL scripts "
+"<https://github.com/IdentityServer/IdentityServer4/tree/master/src/EntityFramework.Storage/migrations/SqlServer/Migrations>`_"
+" for SqlServer in the IdentityServer4.EntityFramework.Storage repository."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:51
+msgid "Configuring the Stores"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:53
+msgid ""
+"To start using these stores, you’ll need to replace any existing calls to"
+" ``AddInMemoryClients``, ``AddInMemoryIdentityResources``, "
+"``AddInMemoryApiResources``, and ``AddInMemoryPersistedGrants`` in your "
+"``ConfigureServices`` method in `Startup.cs` with "
+"``AddConfigurationStore`` and ``AddOperationalStore``."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:55
+msgid ""
+"These methods each require a ``DbContextOptionsBuilder``, meaning your "
+"code will look something like this::"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:73
+msgid "You might need these namespaces added to the file::"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:79
+msgid ""
+"Because we are using EF migrations in this quickstart, the call to "
+"``MigrationsAssembly`` is used to inform Entity Framework that the host "
+"project will contain the migrations code. This is necessary since the "
+"host project is in a different assembly than the one that contains the "
+"``DbContext`` classes."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:83
+msgid "Adding Migrations"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:85
+msgid ""
+"Once the IdentityServer has been configured to use Entity Framework, "
+"we’ll need to generate some migrations."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:87
+msgid ""
+"To create migrations, you will need to install the Entity Framework Core "
+"CLI on your machine and the ``Microsoft.EntityFrameworkCore.Design`` "
+"nuget package in IdentityServer::"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:92
+msgid ""
+"To create the migrations, open a command prompt in the IdentityServer "
+"project directory and run the following two commands::"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:97
+msgid ""
+"You should now see a ``~/Data/Migrations/IdentityServer`` folder in your "
+"project containing the code for your newly created migrations."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:100
+msgid "Initializing the Database"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:102
+msgid ""
+"Now that we have the migrations, we can write code to create the database"
+" from the migrations. We can also seed the database with the in-memory "
+"configuration data that we already defined in the previous quickstarts."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:105
+msgid ""
+"The approach used in this quickstart is used to make it easy to get "
+"IdentityServer up and running. You should devise your own database "
+"creation and maintenance strategy that is appropriate for your "
+"architecture."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:107
+msgid "In `Startup.cs` add this method to help initialize the database::"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:146
+msgid ""
+"The above code may require you to add the following namespaces to your "
+"file::"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:152
+msgid "And then we can invoke this from the ``Configure`` method::"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:163
+msgid ""
+"Now if you run the IdentityServer project, the database should be created"
+" and seeded with the quickstart configuration data. You should be able to"
+" use SQL Server Management Studio or Visual Studio to connect and inspect"
+" the data."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:168
+msgid ""
+"The above ``InitializeDatabase`` helper API is convenient to seed the "
+"database, but this approach is not ideal to leave in to execute each time"
+" the applicaion runs. Once your database is populated, consider removing "
+"the call to the API."
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:171
+msgid "Run the client applications"
+msgstr ""
+
+#: ../quickstarts/5_entityframework.rst:173
+msgid ""
+"You should now be able to run any of the existing client applications and"
+" sign-in, get tokens, and call the API -- all based upon the database "
+"configuration."
+msgstr ""
+

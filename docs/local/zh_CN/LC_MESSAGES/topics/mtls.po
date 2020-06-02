@@ -1,0 +1,349 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016, Brock Allen & Dominick Baier
+# This file is distributed under the same license as the IdentityServer4
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: IdentityServer4 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-29 20:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../topics/mtls.rst:3
+msgid "Mutual TLS"
+msgstr ""
+
+#: ../topics/mtls.rst:4
+msgid "Mutual TLS support in IdentityServer allows for two features:"
+msgstr ""
+
+#: ../topics/mtls.rst:6
+msgid ""
+"Client authentication to IdentityServer endpoints using a TLS X.509 "
+"client certificate"
+msgstr ""
+
+#: ../topics/mtls.rst:7
+msgid "Binding of access tokens to clients using a TLS X.509 client certificate"
+msgstr ""
+
+#: ../topics/mtls.rst:9
+msgid ""
+"See the `\"OAuth 2.0 Mutual-TLS Client Authentication and Certificate-"
+"Bound Access Tokens\" <https://tools.ietf.org/html/rfc8705>`_ spec for "
+"more information"
+msgstr ""
+
+#: ../topics/mtls.rst:11
+msgid "Setting up MTLS involves a couple of steps."
+msgstr ""
+
+#: ../topics/mtls.rst:14
+msgid "Server setup"
+msgstr ""
+
+#: ../topics/mtls.rst:15
+msgid ""
+"It's the hosting layer's responsibility to do the actual validation of "
+"the client certificate. IdentityServer will then use that information to "
+"associate the certificate with a client and embed the certificate "
+"information in the access tokens."
+msgstr ""
+
+#: ../topics/mtls.rst:18
+msgid ""
+"Depending which server you are using, those steps are different. See "
+"`this <https://leastprivilege.com/2020/02/07/mutual-tls-and-proof-of-"
+"possession-access-tokens-part-1-setup/>`_ blog post for more information."
+msgstr ""
+
+#: ../topics/mtls.rst:20
+msgid ""
+"`mkcert <https://github.com/FiloSottile/mkcert>`_ is a nice utility for "
+"creating certificates for development purposes."
+msgstr ""
+
+#: ../topics/mtls.rst:23
+msgid "ASP.NET Core setup"
+msgstr ""
+
+#: ../topics/mtls.rst:24
+msgid ""
+"Depending on the server setup, there are different ways how the ASP.NET "
+"Core host will receive the client certificate. While for IIS and pure "
+"Kestrel hosting, there are no additional steps, typically you have a "
+"reverse proxy in front of the application server."
+msgstr ""
+
+#: ../topics/mtls.rst:27
+msgid ""
+"This means that in addition to the typical forwarded headers handling, "
+"you also need to process the header that contains the client certificate."
+" Add a call to ``app.UseCertificateForwarding();`` in the beginning of "
+"your middleware pipeline for that."
+msgstr ""
+
+#: ../topics/mtls.rst:30
+msgid ""
+"The exact format how proxies transmit the certificates is not "
+"standardized, that's why you need to register a callback to do the actual"
+" header parsing. The Microsoft `docs <https://docs.microsoft.com/en-"
+"us/aspnet/core/security/authentication/certauth?view=aspnetcore-3.1>`_ "
+"show how that would work for Azure Web Apps."
+msgstr ""
+
+#: ../topics/mtls.rst:33
+msgid ""
+"If you are using Nginx (which we found is the most flexible hosting "
+"option), you need to register the following service in "
+"``ConfigureServices``::"
+msgstr ""
+
+#: ../topics/mtls.rst:54
+msgid ""
+"Once, the certificate has been loaded, you also need to setup the "
+"authentication handler. In this scenario we want to support self-signed "
+"certificates, hence the ``CertificateType.All`` and no revocation "
+"checking. These settings might be different in your environment::"
+msgstr ""
+
+#: ../topics/mtls.rst:66
+msgid "IdentityServer setup"
+msgstr ""
+
+#: ../topics/mtls.rst:67
+msgid ""
+"Next step is to enable MTLS in IdentityServer. For that you need to "
+"specify the name of the certificate authentication handler you set-up in "
+"the last step (defaults to ``Certificate``), and the MTLS hosting "
+"strategy."
+msgstr ""
+
+#: ../topics/mtls.rst:70
+msgid ""
+"In IdentityServer, the mutual TLS endpoints, can be configured in three "
+"ways (assuming IdentityServer is running on "
+"``https://identityserver.io``:"
+msgstr ""
+
+#: ../topics/mtls.rst:72
+msgid ""
+"path-based - endpoints located beneath the path ``~/connect/mtls``, e.g. "
+"``https://identityserver.io/connect/mtls/token``."
+msgstr ""
+
+#: ../topics/mtls.rst:73
+msgid ""
+"sub-domain based - endpoints are on a sub-domain of the main server, e.g."
+" ``https://mtls.identityserver.io/connect/token``."
+msgstr ""
+
+#: ../topics/mtls.rst:74
+msgid ""
+"domain-based - endpoints are on a different domain, e.g. ``https"
+"://identityserver-mtls.io``."
+msgstr ""
+
+#: ../topics/mtls.rst:76 ../topics/mtls.rst:104 ../topics/mtls.rst:134
+msgid "For example::"
+msgstr ""
+
+#: ../topics/mtls.rst:87
+msgid "IdentityServer's discovery document reflects those endpoints:"
+msgstr ""
+
+#: ../topics/mtls.rst:93
+msgid "Client authentication"
+msgstr ""
+
+#: ../topics/mtls.rst:94
+msgid ""
+"Clients can use a X.509 client certificate as an authentication mechanism"
+" to endpoints in IdentityServer."
+msgstr ""
+
+#: ../topics/mtls.rst:96
+msgid ""
+"For this you need to associate a client certificate with a client in "
+"IdentityServer. Use the :ref:`IdentityServer builder <refStartup>` to add"
+" the services to DI which contain a default implementation to do that "
+"either thumbprint or common-name based::"
+msgstr ""
+
+#: ../topics/mtls.rst:101
+msgid ""
+"Finally, for the :ref:`client configuration <refClient>` add to the "
+"``ClientSecrets`` collection a secret type of either "
+"``SecretTypes.X509CertificateName`` if you wish to authenticate the "
+"client from the certificate distinguished name or "
+"``SecretTypes.X509CertificateThumbprint`` if you wish to authenticate the"
+" client by certificate thumbprint."
+msgstr ""
+
+#: ../topics/mtls.rst:127
+msgid "Using a client certificate to authenticate to IdentityServer"
+msgstr ""
+
+#: ../topics/mtls.rst:128
+msgid ""
+"When writing a client to connect to IdentityServer, the "
+"``SocketsHttpHandler`` (or ``HttpClientHandler`` if you are on older .NET"
+" Framework versions) class provides a convenient mechanism to add a "
+"client certificate to outgoing requests."
+msgstr ""
+
+#: ../topics/mtls.rst:131
+msgid ""
+"And then HTTP calls (including using the various `IdentityModel "
+"<https://github.com/IdentityModel/IdentityModel2>`_ extension methods) "
+"with the ``HttpClient`` will perform client certificate authentication at"
+" the TLS channel."
+msgstr ""
+
+#: ../topics/mtls.rst:164
+msgid "Sender-constrained access tokens"
+msgstr ""
+
+#: ../topics/mtls.rst:165
+msgid ""
+"Whenever a client authenticates to IdentityServer using a client "
+"certificate, the thumbrint of that certificate will be embedded in the "
+"access token."
+msgstr ""
+
+#: ../topics/mtls.rst:167
+msgid ""
+"Clients can use a X.509 client certificate as a mechanism for sender-"
+"constrained access tokens when authenticating to APIs. The use of these "
+"sender-constrained access tokens requires the client to use the same "
+"X.509 client certificate to authenticate to the API as the one used for "
+"IdentityServer."
+msgstr ""
+
+#: ../topics/mtls.rst:171
+msgid "Confirmation claim"
+msgstr ""
+
+#: ../topics/mtls.rst:172
+msgid ""
+"When a client obtains an access token and has authenticated with mutual "
+"TLS, IdentityServer issues a confirmation claim (or ``cnf``) in the "
+"access token. This value is a hash of the thumbprint of the client "
+"certificate used to authenticate with IdentityServer."
+msgstr ""
+
+#: ../topics/mtls.rst:175
+msgid "This value can be seen in this screen shot of a decoded access token:"
+msgstr ""
+
+#: ../topics/mtls.rst:179
+msgid ""
+"The API will then use this value to ensure the client certificate being "
+"used at the API matches the confirmation value in the access token."
+msgstr ""
+
+#: ../topics/mtls.rst:182
+msgid "Validating and accepting a client certificate in APIs"
+msgstr ""
+
+#: ../topics/mtls.rst:183
+msgid ""
+"As mentioned above for client authentication in IdentityServer, in the "
+"API the web server is expected to perform the client certificate "
+"validation at the TLS layer."
+msgstr ""
+
+#: ../topics/mtls.rst:185
+msgid ""
+"Aditionally, the API hosting application will need a mechanism to accept "
+"the client certificate in order to obtain the thumbprint to perform the "
+"confirmation claim validation. Below is an example how an API in ASP.NET "
+"Core might be configured for both access tokens and client certificates::"
+msgstr ""
+
+#: ../topics/mtls.rst:200
+msgid ""
+"Finally, a mechanism is needed that runs after the authentication "
+"middleware to authenticate the client certificate and compare the "
+"thumbprint to the ``cnf`` from the access token."
+msgstr ""
+
+#: ../topics/mtls.rst:202
+msgid "Below is a simple middleware that checks the claims::"
+msgstr ""
+
+#: ../topics/mtls.rst:254
+msgid "Below is an example pipeline for an API::"
+msgstr ""
+
+#: ../topics/mtls.rst:278
+msgid ""
+"Once the above middlware succeeds, then the caller has been authenticated"
+" with a sender-constrained access token."
+msgstr ""
+
+#: ../topics/mtls.rst:281
+msgid "Introspection and the confirmation claim"
+msgstr ""
+
+#: ../topics/mtls.rst:282
+msgid ""
+"When the access token is a JWT, then the confirmation claim is contained "
+"in the token as a claim. When using reference tokens, the claims that the"
+" access token represents must be obtained via introspection. The "
+"introspection endpoint in IdentityServer will return a ``cnf`` claim for "
+"reference tokens obtained via mutual TLS."
+msgstr ""
+
+#: ../topics/mtls.rst:287
+msgid "Ephemeral client certificates"
+msgstr ""
+
+#: ../topics/mtls.rst:288
+msgid ""
+"You can use the IdentityServer MTLS support also to create sender-"
+"constrained access tokens without using the client certificate for client"
+" authentication. This is useful for situations where you already have "
+"client secrets in place that you don't want to change, e.g. shared "
+"secrets, or better private key JWTs."
+msgstr ""
+
+#: ../topics/mtls.rst:291
+msgid ""
+"Still, if a client certificate is present, the confirmation claim can be "
+"embedded in outgoing access tokens. And as long as the client is using "
+"the same client certitificate to request the token and calling the API, "
+"this will give you the desired proof-of-possession properties."
+msgstr ""
+
+#: ../topics/mtls.rst:294
+msgid "For this enable the following setting in the options::"
+msgstr ""
+
+#: ../topics/mtls.rst:304
+msgid "Using an ephemeral certificate to request a token"
+msgstr ""
+
+#: ../topics/mtls.rst:305
+msgid ""
+"In this scenario, the client uses *some* client secret (a shared secret "
+"in the below sample), but attaches an additional client certificate to "
+"the token request. Since this certificate does not need to be associated "
+"with the client at the token services, it can be created on the fly::"
+msgstr ""
+
+#: ../topics/mtls.rst:327
+msgid ""
+"Then use this client certificate in addition to the already setup-up "
+"client secret::"
+msgstr ""
+

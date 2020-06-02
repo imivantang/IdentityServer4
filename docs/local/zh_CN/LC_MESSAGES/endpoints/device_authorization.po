@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2016, Brock Allen & Dominick Baier
+# This file is distributed under the same license as the IdentityServer4
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: IdentityServer4 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-29 20:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../endpoints/device_authorization.rst:2
+msgid "Device Authorization Endpoint"
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:4
+msgid ""
+"The device authorization endpoint can be used to request device and user "
+"codes. This endpoint is used to start the device flow authorization "
+"process."
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:7
+msgid ""
+"The URL for the end session endpoint is available via the :ref:`discovery"
+" endpoint <refDiscovery>`."
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:9
+msgid "``client_id``"
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:10
+msgid "client identifier (required)"
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:11
+msgid "``client_secret``"
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:12
+msgid ""
+"client secret either in the post body, or as a basic authentication "
+"header. Optional."
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:14
+msgid "``scope``"
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:14
+msgid ""
+"one or more registered scopes. If not specified, a token for all "
+"explicitly allowed scopes will be issued."
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:17
+msgid "Example"
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:27
+msgid "(Form-encoding removed and line breaks added for readability)"
+msgstr ""
+
+#: ../endpoints/device_authorization.rst:29
+msgid ""
+"You can use the `IdentityModel "
+"<https://github.com/IdentityModel/IdentityModel2>`_ client library to "
+"programmatically access the device authorization endpoint from .NET code."
+" For more information check the IdentityModel `docs "
+"<https://identitymodel.readthedocs.io/en/latest/client/device_authorize.html>`_."
+msgstr ""
+
